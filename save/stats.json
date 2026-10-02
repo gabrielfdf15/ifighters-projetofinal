@@ -1,1 +1,9 @@
-{}
+{
+  "playtime": 0,
+  "modes": {
+    "training": {
+      "playtime": 0,
+      "clear": 0
+    }
+  }
+}
