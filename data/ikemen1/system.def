@@ -52,6 +52,7 @@ font6 = infofont.def
 font7 = Open_Sans.def
 font8 = ikemen1/fonts/Timer.def
 font9 = ikemen1/fonts/PixelFlat.def
+font10 = boldgreen.def       ;Fonte bitmap verde com contorno (menu do titulo)
 module =                    ;External Lua code
 
 ;----------------------------
@@ -138,18 +139,18 @@ menu.itemname.watch =
 
 menu.itemname.versus = "VERSUS"
 menu.itemname.training = "TREINO"
-menu.itemname.options = "OPCOES"
+menu.itemname.options = "OPÇÕES"
 menu.itemname.exit = "SAIR"
 
 fadein.time = 10
 fadeout.time = 10
 menu.pos = 350, 380
 menu.tween.factor = 0.5
-menu.item.font = 2,0,0, 150,150,150
-menu.item.scale = 1.0, 1.0
-menu.item.active.font = 2,0,0, 150,255,0
-menu.item.active.scale = 1.3, 1.3
-menu.item.spacing = 0, 48
+menu.item.font = 10,0,0, 255,255,255, 190, -1   ;banco 0 = cinza, opacidade 190/255 (nao selecionado)
+menu.item.scale = 0.6667, 0.6667
+menu.item.active.font = 10,1,0   ;banco 1 = verde (selecionado)
+menu.item.active.scale = 1.0, 1.0
+menu.item.spacing = 0, 56
 menu.item.layerno = 2
 menu.item.active.layerno = 2
 
@@ -195,7 +196,7 @@ textinput.overlay.alpha = 0, 128
 
 ; These parameters define the window in which the items are visible
 ; in.
-menu.window.margins.y = 40, 30
+menu.window.margins.y = 90, 30
 menu.window.visibleitems = 6
 menu.boxcursor.visible = 0         ;Set to 1 to enable default cursor display
 menu.boxcursor.tween.snap = 1      ;Set to 0 to disable cursor snap on menu section change

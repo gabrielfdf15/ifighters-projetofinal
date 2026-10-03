@@ -1,8 +1,12 @@
 {
-  "playtime": 0,
+  "playtime": 62.17,
   "modes": {
     "training": {
       "playtime": 0,
+      "clear": 0
+    },
+    "versus": {
+      "playtime": 62.17,
       "clear": 0
     }
   }
