@@ -1,0 +1,543 @@
+;VR Training, stage inspired from Metal Gear Solid, by Phantom.of.the.Server
+
+[Info]
+name = "VR Training"
+author = "Phantom.of.the.Server"
+versiondate = 2023
+mugenversion = 1.0
+
+[Music]
+bgmusic = sound/VRTraining.mp3
+bgmvolume = 100
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -160
+boundright = 160
+boundhigh = -240
+boundlow = 0
+verticalfollow = 1
+floortension = 88
+tension = 60
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 54
+cutlow = 6
+startzoom = 1
+zoomout = 1
+zoomin = 1
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 216
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = 1
+yscale = 1
+
+[Shadow]
+intensity = 128
+color = 0, 0, 0
+yscale = 0.25
+fade.range = -64, 0
+
+
+;=====<MAIN BG DEFINITION>=====
+[BGdef]
+spr = VRTraining.sff
+debugbg = 0
+
+[BG Black]
+type = normal
+spriteno = 0, 99
+layerno = 0
+start = 0, 0
+delta = 0, 0
+tile = 1, 1
+tilespacing = 0, 0
+mask = 1
+
+[BG Backdrop]
+type = anim
+actionno = 2
+layerno = 0
+start = -160, 0
+delta = 0, 0
+trans = none
+
+[BG Backdrop]
+type = anim
+actionno = 3
+layerno = 0
+start = 0, 0
+tile = 1, 1
+tilespacing = 80, 80
+delta = 0, 0
+trans = sub
+
+[BG Backdrop]
+type = normal
+spriteno = 1, 0
+layerno = 0
+start = -160, 0
+delta = 0, 0.5
+tile = 1, 1
+tilespacing = 0, 0
+velocity = -1, 0
+trans = add
+mask = 1
+
+[BG Floor]
+type = parallax
+spriteno = 0, 0
+layerno = 0
+start = 0, 171
+delta = 0.33, 1
+width = 21, 80;3.7521886
+tile = 1, 0
+tilespacing = 0, 0
+mask = 1
+
+[BG Floor Front]
+type = normal
+spriteno = 0, 1
+layerno = 0
+start = 41, 171
+delta = 1.2571429, 1
+tile = 1, 0
+tilespacing = 0, 0
+mask = 1
+
+[BG Light A]
+type = anim
+actionno = 10
+layerno = 0
+start = 0, 232
+delta = 1.2571429, 1
+ID = 10
+
+[BG Light B]
+type = anim
+actionno = 12
+layerno = 0
+start = 0, 201
+delta = 0.79, 1
+ID = 12
+
+[BG Light C]
+type = anim
+actionno = 14
+layerno = 0
+start = 0, 186
+delta = 0.56, 1
+ID = 14
+
+[BG Light D]
+type = anim
+actionno = 16
+layerno = 0
+start = 0, 178
+delta = 0.433, 1
+ID = 16
+
+[BG Light E]
+type = anim
+actionno = 18
+layerno = 0
+start = 0, 173
+delta = 0.366, 1
+ID = 18
+
+[BG Light F]
+type = anim
+actionno = 20
+layerno = 0
+start = 0, 171
+delta = 0.33, 1
+ID = 20
+
+;[BG Briefing]
+;type = anim
+;actionno = 9
+;layerno = 1
+;start = 0, 120
+;delta = 0, 0
+;ID = 3
+
+;[BG Briefing]
+;type = anim
+;actionno = 8
+;layerno = 1
+;start = 0, 120
+;delta = 0, 0
+;ID = 3
+
+
+;=====<BGCTRLDEF>=====
+;---Briefing On/Off---
+;[BGctrldef 3]
+;ctrlID = 3
+
+;[BGctrl 3, off]
+;type = enable
+;time = 180
+;value = 0
+
+
+;---Light A---
+;1280 pixels wide
+[BGctrldef 10]
+ctrlID = 10
+looptime = 240
+
+[BGctrl 10, anim]
+type = anim
+time = 0
+value = 10
+[BGctrl 10, pos]
+type = posset
+time = 0
+x = -640
+[BGctrl 10 vel]
+type = velset
+time = 0
+x = 12.571429
+
+[BGctrl 10, anim]
+type = anim
+time = 120
+value = 11
+[BGctrl 10, pos]
+type = posset
+time = 120
+x = 640
+[BGctrl 10, vel]
+type = velset
+time = 120
+x = -12.571429
+
+
+;---Light B---
+[BGctrldef 12]
+ctrlID = 12
+looptime = 360
+
+[BGctrl 12, anim]
+type = anim
+time = 0
+value = 12
+[BGctrl 12, pos]
+type = posset
+time = 0
+x = -640
+[BGctrl 12 vel]
+type = velset
+time = 0
+x = 7.9
+
+[BGctrl 12, anim]
+type = anim
+time = 180
+value = 13
+[BGctrl 12, pos]
+type = posset
+time = 180
+x = 640
+[BGctrl 12, vel]
+type = velset
+time = 180
+x = -7.9
+
+
+;---Light C---
+[BGctrldef 14]
+ctrlID = 14
+looptime = 480
+
+[BGctrl 14, anim]
+type = anim
+time = 0
+value = 14
+[BGctrl 14, pos]
+type = posset
+time = 0
+x = -640
+[BGctrl 14 vel]
+type = velset
+time = 0
+x = 5.6
+
+[BGctrl 14, anim]
+type = anim
+time = 240
+value = 15
+[BGctrl 14, pos]
+type = posset
+time = 240
+x = 640
+[BGctrl 14, vel]
+type = velset
+time = 240
+x = -5.6
+
+
+;---Light D---
+[BGctrldef 16]
+ctrlID = 16
+looptime = 600
+
+[BGctrl 16, anim]
+type = anim
+time = 0
+value = 16
+[BGctrl 16, pos]
+type = posset
+time = 0
+x = -640
+[BGctrl 16 vel]
+type = velset
+time = 0
+x = 4.33
+
+[BGctrl 16, anim]
+type = anim
+time = 300
+value = 17
+[BGctrl 16, pos]
+type = posset
+time = 300
+x = 640
+[BGctrl 16, vel]
+type = velset
+time = 300
+x = -4.33
+
+
+;---Light E---
+[BGctrldef 18]
+ctrlID = 18
+looptime = 720
+
+[BGctrl 18, anim]
+type = anim
+time = 0
+value = 18
+[BGctrl 18, pos]
+type = posset
+time = 0
+x = -640
+[BGctrl 18 vel]
+type = velset
+time = 0
+x = 3.66
+
+[BGctrl 18, anim]
+type = anim
+time = 360
+value = 19
+[BGctrl 18, pos]
+type = posset
+time = 360
+x = 640
+[BGctrl 18, vel]
+type = velset
+time = 360
+x = -3.66
+
+
+;---Light F---
+[BGctrldef 20]
+ctrlID = 20
+looptime = 840
+
+[BGctrl 20, anim]
+type = anim
+time = 0
+value = 20
+[BGctrl 20, pos]
+type = posset
+time = 0
+x = -640
+[BGctrl 20 vel]
+type = velset
+time = 0
+x = 3.3
+
+[BGctrl 20, anim]
+type = anim
+time = 420
+value = 21
+[BGctrl 20, pos]
+type = posset
+time = 420
+x = 640
+[BGctrl 20, vel]
+type = velset
+time = 420
+x = -3.3
+
+
+;=====<ANIMATION>=====
+[Begin Action 2]
+2, 0, 0, 0, 3
+2, 1, 0, 0, 3
+2, 2, 0, 0, 3
+2, 3, 0, 0, 3
+2, 4, 0, 0, 3
+2, 5, 0, 0, 3
+2, 6, 0, 0, 3
+2, 7, 0, 0, 3
+2, 8, 0, 0, 3
+2, 9, 0, 0, 3
+2, 10, 0, 0, 3
+2, 11, 0, 0, 3
+2, 12, 0, 0, 3
+2, 13, 0, 0, 3
+2, 14, 0, 0, 3
+2, 15, 0, 0, 3
+2, 16, 0, 0, 3
+2, 17, 0, 0, 3
+2, 18, 0, 0, 3
+2, 19, 0, 0, 3
+2, 20, 0, 0, 3
+2, 21, 0, 0, 3
+2, 22, 0, 0, 3
+2, 23, 0, 0, 3
+2, 24, 0, 0, 3
+2, 25, 0, 0, 3
+2, 26, 0, 0, 3
+2, 27, 0, 0, 3
+2, 28, 0, 0, 3
+2, 29, 0, 0, 3
+2, 30, 0, 0, 3
+2, 31, 0, 0, 3
+2, 32, 0, 0, 3
+2, 33, 0, 0, 3
+2, 34, 0, 0, 3
+2, 35, 0, 0, 3
+2, 36, 0, 0, 3
+2, 37, 0, 0, 3
+2, 38, 0, 0, 3
+2, 39, 0, 0, 3
+2, 40, 0, 0, 3
+2, 41, 0, 0, 3
+2, 42, 0, 0, 3
+2, 43, 0, 0, 3
+2, 44, 0, 0, 3
+2, 45, 0, 0, 3
+2, 46, 0, 0, 3
+2, 47, 0, 0, 3
+2, 48, 0, 0, 3
+2, 49, 0, 0, 3
+2, 50, 0, 0, 3
+2, 51, 0, 0, 3
+2, 52, 0, 0, 3
+2, 53, 0, 0, 3
+2, 54, 0, 0, 3
+2, 55, 0, 0, 3
+2, 56, 0, 0, 3
+2, 57, 0, 0, 3
+2, 58, 0, 0, 3
+2, 59, 0, 0, 3
+
+[Begin Action 3]
+3, 0, 0, 0, 180, , S
+3, 1, 0, 0, 180, , S
+3, 2, 0, 0, 180, , S
+3, 3, 0, 0, 180, , S
+3, 4, 0, 0, 180, , S
+3, 5, 0, 0, 180, , S
+
+[Begin Action 8]
+8, 0, 0, 0, 150
+8, 0, 0, 0, 2, , AS240D16
+8, 0, 0, 0, 2, , AS224D32
+8, 0, 0, 0, 2, , AS208D48
+8, 0, 0, 0, 2, , AS192D64
+8, 0, 0, 0, 2, , AS176D80
+8, 0, 0, 0, 2, , AS160D96
+8, 0, 0, 0, 2, , AS144D112
+8, 0, 0, 0, 2, , AS128D128
+8, 0, 0, 0, 2, , AS112D144
+8, 0, 0, 0, 2, , AS96D160
+8, 0, 0, 0, 2, , AS80D176
+8, 0, 0, 0, 2, , AS64D192
+8, 0, 0, 0, 2, , AS48D208
+8, 0, 0, 0, 2, , AS32D224
+8, 0, 0, 0, 2, , AS16D240
+-1, -1, 0, 0, -1
+
+[Begin Action 9]
+9, 0, 0, 0, 150, , AS0D96
+9, 0, 0, 0, 2, , AS0D106
+9, 0, 0, 0, 2, , AS0D116
+9, 0, 0, 0, 2, , AS0D126
+9, 0, 0, 0, 2, , AS0D136
+9, 0, 0, 0, 2, , AS0D146
+9, 0, 0, 0, 2, , AS0D156
+9, 0, 0, 0, 2, , AS0D166
+9, 0, 0, 0, 2, , AS0D176
+9, 0, 0, 0, 2, , AS0D186
+9, 0, 0, 0, 2, , AS0D196
+9, 0, 0, 0, 2, , AS0D206
+9, 0, 0, 0, 2, , AS0D216
+9, 0, 0, 0, 2, , AS0D226
+9, 0, 0, 0, 2, , AS0D236
+9, 0, 0, 0, 2, , AS0D246
+-1, -1, 0, 0, -1
+
+[Begin Action 10]
+10, 0, 0, 0, 1, , A
+
+[Begin Action 11]
+10, 0, 0, 0, 1, H, A
+
+[Begin Action 12]
+12, 0, 0, 0, 1, , A
+
+[Begin Action 13]
+12, 0, 0, 0, 1, H, A
+
+[Begin Action 14]
+14, 0, 0, 0, 1, , A
+
+[Begin Action 15]
+14, 0, 0, 0, 1, H, A
+
+[Begin Action 16]
+16, 0, 0, 0, 1, , A
+
+[Begin Action 17]
+16, 0, 0, 0, 1, H, A
+
+[Begin Action 18]
+18, 0, 0, 0, 1, , A
+
+[Begin Action 19]
+18, 0, 0, 0, 1, H, A
+
+[Begin Action 20]
+20, 0, 0, 0, 1, , A
+
+[Begin Action 21]
+20, 0, 0, 0, 1, H, A
+
+[Begin Action 9000]
+9000,1, 0,0, 1

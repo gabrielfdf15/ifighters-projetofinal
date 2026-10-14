@@ -1,0 +1,146 @@
+;Vertigo Point Tower, adapted from TMNT III (NES) by Phantom.of.the.Server
+;Images redrawn or generated with ChatGPT
+;BGM recreated with Suno
+
+[Info]
+name = "Vertigo Point Tower"
+author = Phantom.of.the.Server"
+versiondate = 08.04.2026
+ikemenversion = 1.0
+mugenversion = 1.1
+
+[Music]
+bgmusic = sound/VertigoPointTower.mp3
+bgmvolume = 100
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -212
+boundright = 212
+boundhigh = -480
+boundlow = 0
+tension = 120
+tensionhigh = 240
+tensionlow = 0
+verticalfollow = 1; Ikemen
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 104
+cutlow = 16
+startzoom = 1
+zoomout = 0.75
+zoomin = 1
+
+[PlayerInfo]
+p1startx = -140
+p1starty = 0
+p1facing = 1
+
+p2startx = 140
+p2starty = 0
+p2facing = -1
+
+leftbound = -2000
+rightbound = 2000
+
+[Bound]
+screenleft = 30
+screenright = 30
+
+[StageInfo]
+localcoord = 640, 480
+zoffset = 432
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+intensity = 160
+color = 0, 0, 0
+yscale = 0.33
+
+[Reflection]
+intensity = 0
+
+
+;=====<MAIN BG DEFINITION>=====
+[BGdef]
+spr = VertigoPointTower.sff
+bgclearcolor = 0, 0, 0
+debugbg = 0
+
+[BG Sky]
+type = normal
+spriteno = 0, 4
+layerno = 0
+start = 0, 0
+width = 2048, 256
+velocity = 0
+delta = 0.70, 0.70
+zoomdelta = 0.70
+mask = 1
+
+[BG Skyline Back]
+type = normal
+spriteno = 0, 3
+layerno = 0
+start = 660, 0
+tile = 1, 0
+delta = 0.80, 0.80
+zoomdelta = 0.80
+mask = 1
+
+[BG Skyline Font]
+type = normal
+spriteno = 0, 2
+layerno = 0
+start = 360, 0
+tile = 1, 0
+delta = 0.90, 0.90
+zoomdelta = 0.90
+mask = 1
+
+[BG Main]
+type = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, 0
+delta = 1, 1
+zoomdelta = 1
+mask = 1
+
+[BG Sign]
+type = normal
+spriteno = 0, 1
+layerno = 0
+start = 0, 0
+delta = 1, 1
+zoomdelta = 1
+mask = 1
+
+[BG Glow]
+type = anim
+actionno = 1
+layerno = 0
+start = 0, 0
+delta = 1, 1
+zoomdelta = 1
+
+[BG Front]
+type = normal
+spriteno = 0, 5
+layerno = 1
+start = 0, 0
+delta = 1, 1
+zoomdelta = 1
+mask = 1
+
+
+;=====<ANIMATION>=====
+[Begin Action 1]
+1,0, 0,0, 9, , AS128D256
+Interpolate Blend
+1,0, 0,0, 1, , AS96D256
+
+[Begin Action 9000]
+9000,1, 0,0, 1

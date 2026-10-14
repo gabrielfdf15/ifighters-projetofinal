@@ -274,6 +274,11 @@ stages/interactivestage.def
 stages/kfm.def
 stages/stage0.def
 stages/stage0-720.def
+stages/MemoriaOcean.def
+stages/MemoriaTimeInterval
+stages/VertigoPointTower.def
+stages/VRTraining.def
+stages/BoneTheCook.def
 
 ;-------------------------------------------------------------------------------
 [Options]

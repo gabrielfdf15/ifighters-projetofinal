@@ -1,0 +1,201 @@
+;Random AI-generated stage by Phantom.of.the.Server
+;Special thanks to Iced, for coming up with the basic idea behind the stage
+
+[Info]
+name = "Khuul's Judgment"
+author = "Phantom.of.the.Server"
+versiondate = 05.07.2025
+ikemenversion = 1.0
+mugenversion = 1.1
+
+[Music]
+bgmusic = sound/KhuulJudgment.mp3
+bgmvolume = 100
+
+; Hall of the polar king
+; Hall of the arctic king
+; King of cool
+; Arctic King's Challenge
+; Arctic Skirmish
+; Northern Fights
+; Arctic Gauntlet
+; Skirmish for Supper
+; Polar Games
+; Polar Far Ritual
+; Bear in the north
+; Cool King's Contest
+; King Khuul's Gauntlet
+; Glacial Gauntlet
+; Polar Clash
+; Icy Skirmish
+; Polar Pummel
+; Frosty Fisticuffs
+; King Khuul's Trial
+; Khuul's Judgement
+; Khuul's Verdict
+; Khuul's Audition
+; Khuul's Court
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -84
+boundright = 84
+boundhigh = -500
+boundlow = 0
+tension = 120
+tensionhigh = 240
+tensionlow = 0
+verticalfollow = 1; Ikemen
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 104
+cutlow = 16
+startzoom = 1
+zoomout = 0.75
+zoomin = 1
+
+[PlayerInfo]
+p1startx = -140
+p1starty = 0
+p1facing = 1
+
+p2startx = 140
+p2starty = 0
+p2facing = -1
+
+leftbound = -2000
+rightbound = 2000
+
+[Bound]
+screenleft = 30
+screenright = 30
+
+[StageInfo]
+zoffset = 432
+autoturn = 1
+resetBG = 0
+localcoord = 640, 480
+
+[Shadow]
+intensity = 96
+color = 0, 0, 0
+yscale = 0.25
+fade.range = -480, 0
+
+[Reflection]
+reflect = 0
+intensity = 0
+
+
+;=====<MAIN BG DEFINITION>=====
+[BGdef]
+spr = KhuulJudgment.sff
+debugbg = 0
+
+[BG Sky]
+type = normal
+spriteno = 0, 2
+layerno = 0
+start = 0, 0
+delta = 0.8, 0.8
+zoomdelta = 0.8
+mask = 0
+
+[BG Aurora]
+type = anim
+actionno = 3
+layerno = 0
+start = 0, 0
+delta = 0.85, 0.85
+zoomdelta = 0.85
+sin.x = 5, 420, 0
+
+[BG Mountains]
+type = normal
+spriteno = 0, 1
+layerno = 0
+start = 0, 0
+delta = 0.9, 0.9
+zoomdelta = 0.9
+mask = 1
+
+[BG Main]
+type = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, 0
+delta = 1, 1
+zoomdelta = 1
+mask = 1
+
+[BG Blink]
+type = anim
+actionno = 1
+layerno = 0
+start = 0, 0
+delta = 1, 1
+zoomdelta = 1
+
+[BG Torch]
+type = anim
+actionno = 2
+layerno = 0
+start = 225, 36
+delta = 1, 1
+zoomdelta = 1
+
+
+;=====<ANIMATION>=====
+[Begin Action 1]
+-1,-1, 0,0, 240
+1,0, 0,0, 3
+1,1, 0,0, 3
+1,2, 0,0, 6
+1,1, 0,0, 3
+1,0, 0,0, 3
+
+[Begin Action 2]
+2,0, 0,0, 3, , A
+2,1, 0,0, 3, , A
+2,2, 0,0, 3, , A
+2,3, 0,0, 3, , A
+2,4, 0,0, 3, , A
+2,5, 0,0, 3, , A
+2,6, 0,0, 3, , A
+2,7, 0,0, 3, , A
+2,8, 0,0, 3, , A
+2,9, 0,0, 3, , A
+2,10, 0,0, 3, , A
+2,11, 0,0, 3, , A
+2,12, 0,0, 3, , A
+2,13, 0,0, 3, , A
+2,14, 0,0, 3, , A
+2,15, 0,0, 3, , A
+2,16, 0,0, 3, , A
+2,17, 0,0, 3, , A
+2,18, 0,0, 3, , A
+2,19, 0,0, 3, , A
+2,20, 0,0, 3, , A
+2,21, 0,0, 3, , A
+2,22, 0,0, 3, , A
+2,23, 0,0, 3, , A
+2,24, 0,0, 3, , A
+2,25, 0,0, 3, , A
+2,26, 0,0, 3, , A
+2,27, 0,0, 3, , A
+2,28, 0,0, 3, , A
+2,29, 0,0, 3, , A
+2,30, 0,0, 3, , A
+2,31, 0,0, 3, , A
+
+[Begin Action 3]
+3,0, 0,0, 120, , AS128D256
+Interpolate Blend
+3,0, 0,0, 120, , AS256D256
+Interpolate Blend
+3,0, 0,0, 1, , AS128D256
+
+
+[Begin Action 9000]
+9000,1, 0,0, 1
