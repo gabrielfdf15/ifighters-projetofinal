@@ -1896,70 +1896,79 @@ fadein.col = 0, 0, 0
 fadeout.time = 10
 fadeout.col = 0, 0, 0
 ;fadeout.anim = 
-title.offset = 640,48
-title.font = 4,0,0
-title.scale = 1.0, 1.0
-title.text = OPTIONS
-menu.pos = 414, 99
-menu.item.offset = 0, 0
-menu.item.font = 7,0,1, 191,191,191
-menu.item.scale = 1.0, 1.0
-menu.item.active.offset = 0, 0
-menu.item.active.font = 7,0,1
-menu.item.active.scale = 1.0, 1.0
-menu.item.selected.offset = 0, 0
-menu.item.selected.font = 7,0,1, 0,247,247
-menu.item.selected.scale = 1.0, 1.0                
-menu.item.selected.active.offset = 0, 0            
-menu.item.selected.active.font = 7,0,1, 0,247,247  
-menu.item.selected.active.scale = 1.0, 1.0
-menu.item.value.offset = 450, 0
-menu.item.value.font = 7,0,-1, 191,191,191
-menu.item.value.scale = 1.0, 1.0
-menu.item.value.active.offset = 450, 0
-menu.item.value.active.font = 7,0,-1
-menu.item.value.active.scale = 1.0, 1.0
-menu.item.value.conflict.offset = 450, 0
-menu.item.value.conflict.font = 7,0,-1, 247,0,0
-menu.item.value.conflict.scale = 1.0, 1.0
-menu.item.info.offset = 450, 0
-menu.item.info.font = 7,0,-1, 247,247,0
-menu.item.info.scale = 1.0, 1.0
-menu.item.info.active.offset = 450, 0
-menu.item.info.active.font = 7,0,-1, 247,247,0
-menu.item.info.active.scale = 1.0, 1.0
+title.offset = 640,62
+title.font = 10,1,0 ;boldgreen banco 1 = verde
+title.scale = 0.9, 0.9
+title.text = OPÇÕES
+menu.pos = 394, 133
+menu.item.offset = 0, 4
+menu.item.font = 10,0,1
+menu.item.scale = 0.5, 0.5
+menu.item.active.offset = 0, 4
+menu.item.active.font = 10,1,1
+menu.item.active.scale = 0.64, 0.64
+menu.item.selected.offset = 0, 4
+menu.item.selected.font = 10,2,1
+menu.item.selected.scale = 0.5, 0.5
+menu.item.selected.active.offset = 0, 4
+menu.item.selected.active.font = 10,2,1
+menu.item.selected.active.scale = 0.64, 0.64
+menu.item.value.offset = 490, 4
+menu.item.value.font = 10,0,-1
+menu.item.value.scale = 0.5, 0.5
+menu.item.value.active.offset = 490, 4
+menu.item.value.active.font = 10,1,-1
+menu.item.value.active.scale = 0.64, 0.64
+menu.item.value.conflict.offset = 490, 4
+menu.item.value.conflict.font = 10,2,-1, 255,90,90
+menu.item.value.conflict.scale = 0.5, 0.5
+menu.item.info.offset = 490, 4
+menu.item.info.font = 10,2,-1
+menu.item.info.scale = 0.5, 0.5
+menu.item.info.active.offset = 490, 4
+menu.item.info.active.font = 10,2,-1
+menu.item.info.active.scale = 0.64, 0.64
 menu.item.spacing = 0, 42
 menu.window.margins.y = 21, 2
 menu.window.visibleitems = 13
-menu.boxcursor.visible = 1
+menu.boxcursor.visible = 0 ;sem barra de cursor (igual ao menu do titulo)
 menu.boxcursor.coords = -15, -30, 462, 11
-menu.boxcursor.col = 255, 255, 255
+menu.boxcursor.col = 130, 230, 60
 menu.boxcursor.pulse = 30, 20, 30
-menu.boxbg.visible = 1
-menu.boxbg.col = 0, 0, 0
-menu.boxbg.alpha = 0, 128
+menu.boxbg.visible = 0 ;sem card
+menu.boxbg.col = 20, 40, 110
+menu.boxbg.alpha = 70, 150
 ;menu.arrow.up.anim = 
 menu.arrow.up.spr = 400, 0
-menu.arrow.up.offset = 428, -51
+menu.arrow.up.offset = 235, -59
 menu.arrow.up.facing = 1
 menu.arrow.up.scale = 1.0, 1.0
 ;menu.arrow.down.anim = 
 menu.arrow.down.spr = 401, 0
-menu.arrow.down.offset = 428, 525
+menu.arrow.down.offset = 235, 559
 menu.arrow.down.facing = 1
 menu.arrow.down.scale = 1.0, 1.0
 menu.title.uppercase = 1
-menu.valuename.none = None
-menu.valuename.random = Random
-menu.valuename.default = Default
+menu.valuename.none = Nenhum
+menu.valuename.random = Aleatório
+menu.valuename.default = Padrão
 menu.valuename.f = (F%i)
 menu.valuename.esc = (Esc)
 menu.valuename.page = (Tab)
 menu.valuename.nokey = Not used
-menu.valuename.yes = Yes
-menu.valuename.no = No
-menu.valuename.enabled = Enabled
-menu.valuename.disabled = Disabled
+; ATENCAO: "nokey" e gravado no arquivo de config como nome da tecla. NAO traduza esta linha.
+; (o texto exibido em portugues vem de "nokeydisplay", abaixo)
+menu.valuename.nokeydisplay = Sem tecla
+menu.valuename.yes = Sim
+menu.valuename.no = Não
+menu.valuename.enabled = Ativado
+menu.valuename.disabled = Desativado
+menu.valuename.normal = Normal
+menu.valuename.slow = Lento %i
+menu.valuename.fast = Rápido %i
+menu.valuename.bilinear = Suave
+menu.valuename.nearest = Pixelado
+menu.valuename.presskey = Aperte...
 
 cursor.move.snd = 100, 0
 cursor.done.snd = 100, 1
@@ -1968,59 +1977,61 @@ cancel.snd = 100, 2
 textinput.font = 7,0,1
 textinput.offset = 75, 96
 textinput.scale = 1.0, 1.0
-textinput.port.text = Type in Host Port, e.g. 7500.\nPress ENTER to accept.\nPress ESC to cancel.
-textinput.reswidth.text = Type in screen width.\nPress ENTER to accept.\nPress ESC to cancel.
-textinput.resheight.text = Type in screen height.\nPress ENTER to accept.\nPress ESC to cancel.
-textinput.aspectwidth.text = Type in aspect width.\nPress ENTER to accept.\nPress ESC to cancel.
-textinput.aspectheight.text = Type in aspect height.\nPress ENTER to accept.\nPress ESC to cancel.
+textinput.port.text = Digite a porta do host, ex.: 7500.\nENTER para aceitar.\nESC para cancelar.
+textinput.reswidth.text = Digite a largura da tela.\nENTER para aceitar.\nESC para cancelar.
+textinput.resheight.text = Digite a altura da tela.\nENTER para aceitar.\nESC para cancelar.
+textinput.aspectwidth.text = Digite a largura da proporção.\nENTER para aceitar.\nESC para cancelar.
+textinput.aspectheight.text = Digite a altura da proporção.\nENTER para aceitar.\nESC para cancelar.
 ;textinput.overlay.window = 0, 0, 1280, 720
 textinput.overlay.col = 0, 0, 0
 textinput.overlay.alpha = 0, 128
 
 ;P1 Key menu
-keymenu.p1.menuoffset = 276, 99
-keymenu.p1.playerno.offset = 156, 0
-keymenu.p1.playerno.font = 7,0,0, 0,247,247
-keymenu.p1.playerno.scale = 1.0, 1.0
+keymenu.p1.menuoffset = 364, 116
+keymenu.p1.playerno.offset = 131, 5
+keymenu.p1.playerno.font = 10,2,0, 90,200,255
+keymenu.p1.playerno.scale = 0.6, 0.6
+keymenu.p1.playerno.text = JOGADOR %i
 ;P2 Key menu
-keymenu.p2.menuoffset = 693, 99
-keymenu.p2.playerno.offset = 156, 0
-keymenu.p2.playerno.font = 7,0,0, 247,0,0
-keymenu.p2.playerno.scale = 1.0, 1.0
+keymenu.p2.menuoffset = 654, 116
+keymenu.p2.playerno.offset = 131, 5
+keymenu.p2.playerno.font = 10,2,0, 255,90,90
+keymenu.p2.playerno.scale = 0.6, 0.6
+keymenu.p2.playerno.text = JOGADOR %i
 
 ; unassigned 'keymenu' parameters use corresponding 'menu' values
 
 keymenu.pos = 0, 0
 
-keymenu.item.spacing = 0, 36
-keymenu.item.value.offset = 303, 0
-keymenu.item.value.active.offset = 303, 0
-keymenu.item.value.conflict.offset = 303, 0
-keymenu.item.info.offset = 303, 0
-keymenu.item.info.active.offset = 303, 0
+keymenu.item.spacing = 0, 34
+keymenu.item.value.offset = 262, 4
+keymenu.item.value.active.offset = 262, 4
+keymenu.item.value.conflict.offset = 262, 4
+keymenu.item.info.offset = 262, 4
+keymenu.item.info.active.offset = 262, 4
 
 keymenu.window.margins.y = 0, 0
 keymenu.window.visibleitems = 0
 
-keymenu.boxcursor.coords = -15, -27, 318, 8
+keymenu.boxcursor.coords = -10, -27, 272, 8
 
-keymenu.itemname.configall = Config all
-keymenu.itemname.up = Up
-keymenu.itemname.down = Down
-keymenu.itemname.left = Left
-keymenu.itemname.right = Right
+keymenu.itemname.configall = Mapear tudo
+keymenu.itemname.up = Cima
+keymenu.itemname.down = Baixo
+keymenu.itemname.left = Esquerda
+keymenu.itemname.right = Direita
 keymenu.itemname.a = A
 keymenu.itemname.b = B
 keymenu.itemname.c = C
 keymenu.itemname.x = X
 keymenu.itemname.y = Y
 keymenu.itemname.z = Z
-keymenu.itemname.start = Start
+keymenu.itemname.start = Iniciar
 keymenu.itemname.d = D
 keymenu.itemname.w = W
 keymenu.itemname.menu = Menu
-keymenu.itemname.back = Back
-keymenu.itemname.page = Page
+keymenu.itemname.back = Voltar
+keymenu.itemname.page = Página
 
 ; If custom menus are not declared, default option screen layout is loaded.
 ; Refer to system.base.def for an example how to modify option screen menus.
@@ -2053,6 +2064,22 @@ start = -640, 0
 tile = 1,0
 velocity = -0.7, 0
 window = 0,0, 1279,959
+mask = 1
+
+; Card da tela de opcoes (sprite 105,0 do system.sff) e plaquinha do titulo (105,1).
+; Para mover: ajuste "start" (x relativo ao centro da tela, y a partir do topo).
+[OptionBG Card]
+type = normal
+spriteno = 105,0
+layerno = 0
+start = -312, 64
+mask = 1
+
+[OptionBG Title Plate]
+type = normal
+spriteno = 105,1
+layerno = 0
+start = -206, -2
 mask = 1
 
 ;-------------------------------------------------------------------
@@ -2665,3 +2692,6 @@ overlay.col = 0, 0, 0
 overlay.alpha = 0, 128
 done.snd = 100, 0
 cancel.snd = 100, 2
+text.text.keys = Existem teclas repetidas!\n\nENTER: continuar editando\nESC: descartar alterações e sair
+text.text.pad = Nenhum controle detectado.\nConecte um controle e tente novamente.
+text.text.noreload = As alterações só terão efeito\nao reiniciar o jogo.

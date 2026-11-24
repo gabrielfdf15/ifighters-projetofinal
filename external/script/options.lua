@@ -135,7 +135,7 @@ options.t_itemname = {
 			modifyGameOption('Options.Turns.Recovery.Base', 12.5)
 			modifyGameOption('Options.Turns.Recovery.Bonus', 27.5)
 			--modifyGameOption('Config.Motif', "data/system.def")
-			modifyGameOption('Config.Players', 4)
+			modifyGameOption('Config.Players', 2)
 			modifyGameOption('Config.Language', "en")
 			--modifyGameOption('Config.AfterImageMax', 128)
 			--modifyGameOption('Config.ExplodMax', 512)
@@ -1608,6 +1608,145 @@ function options.f_vardisplay(itemname, player)
 	return ''
 end
 
+--;===========================================================
+--; MENU DE OPCOES ENXUTO E EM PORTUGUES
+--;===========================================================
+-- O jogo so tem Treino e Versus 1v1 local, entao apenas os itens listados aqui
+-- continuam no menu (todo o resto - arcade, team/tag/simul/turns, netplay,
+-- engine, resolucao, shaders, 3D etc. - e removido ao montar o menu).
+-- Para trazer um item de volta, basta adicionar o itemname nesta lista.
+options.t_keepItems = {
+	-- jogo
+	difficulty = true, roundtime = true, lifemul = true, gamespeed = true,
+	roundsnumsingle = true, maxdrawgames = true, autoguard = true, dizzy = true,
+	guardbreak = true, redlife = true,
+	-- video
+	fullscreen = true, vsync = true, windowscalemode = true, keepaspect = true,
+	-- audio
+	mastervolume = true, bgmvolume = true, sfxvolume = true,
+	-- controles
+	keyboard = true, gamepad = true, inputdefault = true,
+	-- rodape
+	default = true, savereturn = true, ['return'] = true,
+}
+
+-- Nome exibido de cada item.
+options.t_ptbr = {
+	difficulty = 'Dificuldade da IA',
+	roundtime = 'Tempo do round',
+	lifemul = 'Vida',
+	gamespeed = 'Velocidade do jogo',
+	roundsnumsingle = 'Rounds para vencer',
+	maxdrawgames = 'Máx. de empates',
+	autoguard = 'Defesa automática',
+	dizzy = 'Atordoamento',
+	guardbreak = 'Quebra de guarda',
+	redlife = 'Vida vermelha',
+	fullscreen = 'Tela cheia',
+	vsync = 'Sincronia vertical',
+	windowscalemode = 'Filtro da janela',
+	keepaspect = 'Manter proporção',
+	mastervolume = 'Volume geral',
+	bgmvolume = 'Volume da música',
+	sfxvolume = 'Volume dos efeitos',
+	keyboard = 'Configurar teclado',
+	gamepad = 'Configurar controle',
+	inputdefault = 'Restaurar padrão',
+	default = 'Valores padrão',
+	savereturn = 'Salvar e voltar',
+	['return'] = 'Voltar sem salvar',
+	back = 'Voltar',
+}
+
+-- Titulo (placa verde no topo) de telas que abrem a partir de um item.
+options.t_ptbrTitle = {
+	keyboard = 'TECLADO',
+	gamepad = 'CONTROLE',
+}
+
+-- Submenus sao identificados pelo conteudo (nao dependem do nome interno).
+options.t_ptbrSubmenu = {
+	{has = 'difficulty', label = 'Configurações de jogo', title = 'JOGO'},
+	{has = 'fullscreen', label = 'Configurações de vídeo', title = 'VÍDEO'},
+	{has = 'mastervolume', label = 'Configurações de áudio', title = 'ÁUDIO'},
+	{has = 'keyboard', label = 'Controles', title = 'CONTROLES'},
+}
+
+local function f_isSpacer(name)
+	return name:match('^spacer%d*$') ~= nil
+end
+
+local function f_hasItem(tbl, name)
+	for _, it in ipairs(tbl.items) do
+		if it.itemname == name then
+			return true
+		end
+	end
+	return false
+end
+
+-- Remove itens fora de options.t_keepItems (recursivo). Submenus que ficam sem
+-- nenhum item real (so "back"/espacos) tambem somem.
+local function f_trimMenu(tbl)
+	local kept = {}
+	for _, it in ipairs(tbl.items) do
+		local sub = tbl.submenu[it.itemname]
+		if f_isSpacer(it.itemname) or it.itemname == 'back' then
+			table.insert(kept, it)
+		elseif sub ~= nil and #sub.items > 0 then
+			f_trimMenu(sub)
+			for _, c in ipairs(sub.items) do
+				if c.itemname ~= 'back' and not f_isSpacer(c.itemname) then
+					table.insert(kept, it)
+					break
+				end
+			end
+		elseif options.t_keepItems[it.itemname] then
+			table.insert(kept, it)
+		end
+	end
+	-- espacos: sem repeticao, sem espaco no comeco nem no fim
+	local out = {}
+	for _, it in ipairs(kept) do
+		if not f_isSpacer(it.itemname) or (#out > 0 and not f_isSpacer(out[#out].itemname)) then
+			table.insert(out, it)
+		end
+	end
+	while #out > 0 and f_isSpacer(out[#out].itemname) do
+		table.remove(out)
+	end
+	for i = #tbl.items, 1, -1 do
+		tbl.items[i] = nil
+	end
+	for i, it in ipairs(out) do
+		tbl.items[i] = it
+	end
+end
+
+-- Aplica os nomes em portugues nos itens e titulos das telas.
+local function f_localizeMenu(tbl)
+	for _, it in ipairs(tbl.items) do
+		local sub = tbl.submenu[it.itemname]
+		if sub ~= nil and #sub.items > 0 then
+			f_localizeMenu(sub)
+			for _, c in ipairs(options.t_ptbrSubmenu) do
+				if f_hasItem(sub, c.has) then
+					it.displayname = c.label
+					sub.title = c.title
+					break
+				end
+			end
+		else
+			if options.t_ptbr[it.itemname] ~= nil then
+				it.displayname = options.t_ptbr[it.itemname]
+			end
+			if sub ~= nil and options.t_ptbrTitle[it.itemname] ~= nil then
+				sub.title = options.t_ptbrTitle[it.itemname]
+			end
+		end
+	end
+end
+
 -- Dynamically generates all menus and submenus
 function options.f_start()
 	-- external shaders
@@ -1785,6 +1924,9 @@ function options.f_start()
 			lastNum = j
 		end
 	end
+	-- Menu enxuto (so treino e 1v1 local) e em portugues
+	f_trimMenu(options.menu)
+	f_localizeMenu(options.menu)
 	-- Runtime platform filtering
 	local runtimeOS = getRuntimeOS()
 	local excluded = {gles32 = true}
@@ -1943,6 +2085,11 @@ function options.f_setKeyConfig(cfgType)
 end
 
 function options.f_keyCfgInit(cfgType, title)
+	-- Jogo so tem 1v1 local: mantem 2 jogadores (evita a pagina extra de P3/P4)
+	if gameOption('Config.Players') ~= 2 and not main.pauseMenuActive then
+		modifyGameOption('Config.Players', 2)
+		setPlayers()
+	end
 	resetKey()
 	cursorPosY = configall_start
 	item = configall_start
@@ -2271,6 +2418,10 @@ function options.f_keyCfg(cfgType, controller, bg, skipClear)
 				vardisplay  = base['vardisplay' .. pn],
 				infodisplay = base.infodisplay,
 			}
+			-- texto exibido para tecla nao definida (o valor salvo no config nao muda)
+			if row.vardisplay == tostring(motif.option_info.menu.valuename.nokey) then
+				row.vardisplay = motif.option_info.menu.valuename.nokeydisplay or 'Sem tecla'
+			end
 			-- contextual labels
 			if base.itemname == 'configall' then
 				row.infodisplay = string.format(motif.option_info.menu.valuename.f, pane + player - side)
