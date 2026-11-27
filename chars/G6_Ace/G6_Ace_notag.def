@@ -1,0 +1,34 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Portgas D. Ace"
+displayname ="Ace"
+versiondate =21/12/2017
+mugenversion =1.0 
+author ="CobraG6"
+pal.defaults =1,2,3,4,5,6
+
+[Files]
+sprite =Ace.sff
+anim =Ace.air
+sound =Ace.snd
+cmd =Ace_notag.cmd
+cns =Ace.cns
+stcommon =common1.cns
+st =Ace.cns
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+st1=IA_notag.cns
+st2=Especiales.cns
+st3=tag_system.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

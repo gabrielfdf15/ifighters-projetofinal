@@ -1,0 +1,37 @@
+Lista de Movimientos.
+
+- Taunt               = Start
+
+** Normals:
+
+- Combo 1             = a
+- Combo 2             = b
+
+** Techniques:
+
+- Counter             = x               Power = 1500 (when you get hurt)
+- Power Charge        = y               (Hold)
+- Dimension + Grab    = z               (Invencible)(Unguardable)
+
+** Specials:
+
+- Stand Special       = c   
+- Side Special        = F,c
+- Down Special        = D,c             (Hold)
+
+- Air Atacks          = a,b or c
+- Air Special         = D,c
+
+** Supers:
+ 
+- Hiken               = D,DF,F,a        Power = 1000 
+- Shinka Shiranui     = a (Hold)        Power = 1000 (after of Hiken)
+- Enkai Hibashira     = D,DF,F,b        Power = 2000  
+- Dai Enkai Entei     = D,DF,F,c        Power = 3000
+
+** TEAM MODE (only uno tag mode):
+  
+- Change              = a+b             Power = 500
+- Call Helper         = b+c             Power = 500
+- Hyper Dual          = D,DF,F,a+b      Power = 3000  
+
